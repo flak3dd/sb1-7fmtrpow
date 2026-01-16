@@ -111,7 +111,7 @@ export default function ConfigurationScreen() {
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#4ade80" />
+        <ActivityIndicator size="large" color="#10b981" />
       </View>
     );
   }
@@ -125,7 +125,7 @@ export default function ConfigurationScreen() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <Monitor size={24} color="#4ade80" />
+          <Monitor size={26} color="#10b981" />
           <Text style={styles.sectionTitle}>Resolution</Text>
         </View>
         <Text style={styles.sectionDescription}>
@@ -187,7 +187,7 @@ export default function ConfigurationScreen() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <Gauge size={24} color="#4ade80" />
+          <Gauge size={26} color="#10b981" />
           <Text style={styles.sectionTitle}>Frame Rate</Text>
         </View>
         <Text style={styles.sectionDescription}>
@@ -217,7 +217,7 @@ export default function ConfigurationScreen() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <Repeat size={24} color="#4ade80" />
+          <Repeat size={26} color="#10b981" />
           <Text style={styles.sectionTitle}>Playback Options</Text>
         </View>
 
@@ -231,7 +231,7 @@ export default function ConfigurationScreen() {
           <Switch
             value={loopEnabled}
             onValueChange={setLoopEnabled}
-            trackColor={{ false: '#333', true: '#4ade80' }}
+            trackColor={{ false: '#1a1a1a', true: '#10b981' }}
             thumbColor={loopEnabled ? '#fff' : '#666'}
           />
         </View>
@@ -272,73 +272,79 @@ export default function ConfigurationScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0a0a0a',
+    backgroundColor: '#000',
   },
   centerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0a0a0a',
+    backgroundColor: '#000',
   },
   header: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#333',
+    padding: 24,
+    paddingTop: 16,
+    backgroundColor: '#0a0a0a',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '700',
     color: '#fff',
-    marginBottom: 4,
+    marginBottom: 6,
+    letterSpacing: -0.5,
   },
   subtitle: {
-    fontSize: 14,
-    color: '#888',
+    fontSize: 15,
+    color: '#999',
+    letterSpacing: 0.1,
   },
   section: {
     padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#1a1a1a',
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
     gap: 12,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '700',
     color: '#fff',
+    letterSpacing: -0.3,
   },
   sectionDescription: {
     fontSize: 14,
-    color: '#888',
-    marginBottom: 16,
+    color: '#999',
+    marginBottom: 18,
+    lineHeight: 21,
   },
   optionsContainer: {
-    gap: 8,
+    gap: 10,
   },
   optionButton: {
-    backgroundColor: '#1a1a1a',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderRadius: 8,
+    backgroundColor: '#0f0f0f',
+    paddingVertical: 16,
+    paddingHorizontal: 18,
+    borderRadius: 12,
     borderWidth: 2,
-    borderColor: 'transparent',
+    borderColor: '#1a1a1a',
   },
   optionButtonActive: {
-    backgroundColor: '#1a2a1a',
-    borderColor: '#4ade80',
+    backgroundColor: '#0a1510',
+    borderColor: '#10b981',
+    shadowColor: '#10b981',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
   optionText: {
     fontSize: 16,
-    color: '#888',
-    fontWeight: '500',
+    color: '#999',
+    fontWeight: '600',
   },
   optionTextActive: {
-    color: '#4ade80',
-    fontWeight: '600',
+    color: '#10b981',
+    fontWeight: '700',
   },
   customResolution: {
     flexDirection: 'row',
@@ -350,86 +356,103 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     fontSize: 14,
-    color: '#888',
-    marginBottom: 6,
+    color: '#999',
+    marginBottom: 8,
+    fontWeight: '600',
   },
   input: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#0f0f0f',
     borderWidth: 2,
-    borderColor: '#333',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 12,
+    borderColor: '#1a1a1a',
+    borderRadius: 10,
+    paddingVertical: 14,
+    paddingHorizontal: 14,
     fontSize: 16,
     color: '#fff',
+    fontWeight: '500',
   },
   infoBox: {
-    marginTop: 16,
-    backgroundColor: '#1a1a1a',
-    padding: 12,
-    borderRadius: 8,
+    marginTop: 18,
+    backgroundColor: '#0f0f0f',
+    padding: 16,
+    borderRadius: 12,
     borderLeftWidth: 4,
-    borderLeftColor: '#4ade80',
+    borderLeftColor: '#10b981',
+    borderWidth: 1,
+    borderColor: '#1a1a1a',
   },
   infoLabel: {
-    fontSize: 12,
-    color: '#888',
-    marginBottom: 4,
+    fontSize: 13,
+    color: '#999',
+    marginBottom: 6,
+    fontWeight: '500',
   },
   infoValue: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#4ade80',
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#10b981',
+    letterSpacing: -0.2,
   },
   switchRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#1a1a1a',
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: '#0f0f0f',
+    padding: 18,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#1a1a1a',
   },
   switchInfo: {
     flex: 1,
     marginRight: 16,
   },
   switchLabel: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
     color: '#fff',
-    marginBottom: 4,
+    marginBottom: 6,
+    letterSpacing: -0.2,
   },
   switchDescription: {
     fontSize: 14,
-    color: '#888',
+    color: '#999',
+    lineHeight: 20,
   },
   noteTitle: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 18,
+    fontWeight: '700',
     color: '#fff',
-    marginBottom: 12,
+    marginBottom: 14,
+    letterSpacing: -0.2,
   },
   noteText: {
     fontSize: 14,
-    color: '#888',
-    marginBottom: 8,
-    lineHeight: 20,
+    color: '#999',
+    marginBottom: 10,
+    lineHeight: 22,
   },
   saveButton: {
-    backgroundColor: '#4ade80',
+    backgroundColor: '#10b981',
     marginHorizontal: 20,
-    marginTop: 20,
-    paddingVertical: 16,
-    borderRadius: 8,
+    marginTop: 24,
+    paddingVertical: 18,
+    borderRadius: 14,
     alignItems: 'center',
+    shadowColor: '#10b981',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 8,
   },
   saveButtonDisabled: {
     opacity: 0.6,
   },
   saveButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
     color: '#fff',
+    letterSpacing: 0.3,
   },
   bottomPadding: {
     height: 40,

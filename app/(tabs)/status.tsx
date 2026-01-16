@@ -132,7 +132,7 @@ export default function ServiceStatusScreen() {
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#4ade80" />
+        <ActivityIndicator size="large" color="#10b981" />
       </View>
     );
   }
@@ -146,18 +146,18 @@ export default function ServiceStatusScreen() {
 
       <View style={styles.statusCard}>
         <View style={styles.statusHeader}>
-          <Power size={32} color={serviceEnabled ? '#4ade80' : '#666'} />
+          <Power size={32} color={serviceEnabled ? '#10b981' : '#666'} />
           <View style={styles.statusInfo}>
             <Text style={styles.statusTitle}>Virtual Camera Service</Text>
             <View style={styles.statusBadge}>
               {serviceEnabled ? (
                 <>
-                  <CheckCircle size={16} color="#4ade80" />
+                  <CheckCircle size={18} color="#10b981" />
                   <Text style={[styles.statusText, styles.statusActive]}>Active</Text>
                 </>
               ) : (
                 <>
-                  <XCircle size={16} color="#ef4444" />
+                  <XCircle size={18} color="#ef4444" />
                   <Text style={[styles.statusText, styles.statusInactive]}>Inactive</Text>
                 </>
               )}
@@ -166,14 +166,14 @@ export default function ServiceStatusScreen() {
           <Switch
             value={serviceEnabled}
             onValueChange={toggleService}
-            trackColor={{ false: '#333', true: '#4ade80' }}
+            trackColor={{ false: '#1a1a1a', true: '#10b981' }}
             thumbColor={serviceEnabled ? '#fff' : '#666'}
           />
         </View>
 
         {serviceEnabled && (
           <View style={styles.statusDescription}>
-            <Info size={16} color="#4ade80" />
+            <Info size={18} color="#10b981" />
             <Text style={styles.descriptionText}>
               The virtual camera is currently broadcasting to target applications
             </Text>
@@ -184,7 +184,7 @@ export default function ServiceStatusScreen() {
       {activeMedia && (
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <VideoIcon size={24} color="#4ade80" />
+            <VideoIcon size={26} color="#10b981" />
             <Text style={styles.sectionTitle}>Active Media</Text>
           </View>
 
@@ -236,7 +236,7 @@ export default function ServiceStatusScreen() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <Monitor size={24} color="#4ade80" />
+          <Monitor size={26} color="#10b981" />
           <Text style={styles.sectionTitle}>Current Configuration</Text>
         </View>
 
@@ -307,36 +307,44 @@ export default function ServiceStatusScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0a0a0a',
+    backgroundColor: '#000',
   },
   centerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0a0a0a',
+    backgroundColor: '#000',
   },
   header: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#333',
+    padding: 24,
+    paddingTop: 16,
+    backgroundColor: '#0a0a0a',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '700',
     color: '#fff',
-    marginBottom: 4,
+    marginBottom: 6,
+    letterSpacing: -0.5,
   },
   subtitle: {
-    fontSize: 14,
-    color: '#888',
+    fontSize: 15,
+    color: '#999',
+    letterSpacing: 0.1,
   },
   statusCard: {
     margin: 20,
-    backgroundColor: '#1a1a1a',
-    borderRadius: 12,
-    padding: 20,
+    marginTop: 16,
+    backgroundColor: '#0f0f0f',
+    borderRadius: 16,
+    padding: 24,
     borderWidth: 2,
-    borderColor: '#333',
+    borderColor: '#1a1a1a',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+    elevation: 8,
   },
   statusHeader: {
     flexDirection: 'row',
@@ -347,71 +355,74 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statusTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 19,
+    fontWeight: '700',
     color: '#fff',
-    marginBottom: 6,
+    marginBottom: 8,
+    letterSpacing: -0.2,
   },
   statusBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 8,
   },
   statusText: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '700',
+    letterSpacing: 0.2,
   },
   statusActive: {
-    color: '#4ade80',
+    color: '#10b981',
   },
   statusInactive: {
     color: '#ef4444',
   },
   statusDescription: {
     flexDirection: 'row',
-    gap: 8,
-    marginTop: 16,
-    padding: 12,
-    backgroundColor: '#1a2a1a',
-    borderRadius: 8,
-    borderLeftWidth: 3,
-    borderLeftColor: '#4ade80',
+    gap: 10,
+    marginTop: 18,
+    padding: 14,
+    backgroundColor: '#0a1510',
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: '#10b981',
   },
   descriptionText: {
     flex: 1,
     fontSize: 14,
-    color: '#4ade80',
-    lineHeight: 20,
+    color: '#10b981',
+    lineHeight: 21,
   },
   section: {
     padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#1a1a1a',
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 18,
     gap: 12,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '700',
     color: '#fff',
+    letterSpacing: -0.3,
   },
   mediaCard: {
     flexDirection: 'row',
-    backgroundColor: '#1a1a1a',
-    borderRadius: 12,
+    backgroundColor: '#0f0f0f',
+    borderRadius: 14,
     padding: 16,
     gap: 16,
+    borderWidth: 1,
+    borderColor: '#1a1a1a',
   },
   mediaPreview: {
-    width: 100,
-    height: 100,
-    borderRadius: 8,
+    width: 110,
+    height: 110,
+    borderRadius: 12,
     overflow: 'hidden',
-    backgroundColor: '#333',
+    backgroundColor: '#1a1a1a',
   },
   thumbnail: {
     width: '100%',
@@ -444,26 +455,31 @@ const styles = StyleSheet.create({
   warningCard: {
     flexDirection: 'row',
     margin: 20,
-    backgroundColor: '#2a1a0a',
-    borderRadius: 12,
-    padding: 16,
-    gap: 12,
+    backgroundColor: '#1a0f00',
+    borderRadius: 14,
+    padding: 18,
+    gap: 14,
     borderWidth: 2,
     borderColor: '#f59e0b',
+    shadowColor: '#f59e0b',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
   },
   warningContent: {
     flex: 1,
   },
   warningTitle: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
     color: '#f59e0b',
-    marginBottom: 4,
+    marginBottom: 6,
+    letterSpacing: -0.2,
   },
   warningText: {
     fontSize: 14,
     color: '#d97706',
-    lineHeight: 20,
+    lineHeight: 21,
   },
   configList: {
     gap: 12,
@@ -471,16 +487,18 @@ const styles = StyleSheet.create({
   configItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1a1a1a',
-    padding: 16,
-    borderRadius: 8,
-    gap: 12,
+    backgroundColor: '#0f0f0f',
+    padding: 18,
+    borderRadius: 12,
+    gap: 14,
+    borderWidth: 1,
+    borderColor: '#1a1a1a',
   },
   configIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 8,
-    backgroundColor: '#0a0a0a',
+    width: 44,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -488,31 +506,36 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   configLabel: {
-    fontSize: 12,
-    color: '#888',
-    marginBottom: 4,
+    fontSize: 13,
+    color: '#999',
+    marginBottom: 5,
+    fontWeight: '500',
   },
   configValue: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
     color: '#fff',
+    letterSpacing: -0.2,
   },
   infoTitle: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 18,
+    fontWeight: '700',
     color: '#fff',
-    marginBottom: 12,
+    marginBottom: 14,
+    letterSpacing: -0.2,
   },
   infoBox: {
-    backgroundColor: '#1a1a1a',
-    padding: 16,
-    borderRadius: 8,
-    gap: 8,
+    backgroundColor: '#0f0f0f',
+    padding: 18,
+    borderRadius: 12,
+    gap: 10,
+    borderWidth: 1,
+    borderColor: '#1a1a1a',
   },
   infoText: {
     fontSize: 14,
-    color: '#888',
-    lineHeight: 20,
+    color: '#999',
+    lineHeight: 22,
   },
   bottomPadding: {
     height: 40,
