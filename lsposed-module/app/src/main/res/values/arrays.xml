@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Target applications for LSPosed scope -->
+    <string-array name="xposed_scope">
+        <!-- Web browsers -->
+        <item>com.android.chrome</item>
+        <item>org.mozilla.firefox</item>
+        <item>com.microsoft.emmx</item>
+
+        <!-- Video conferencing apps -->
+        <item>com.google.android.apps.meetings</item>
+        <item>us.zoom.videomeetings</item>
+        <item>com.microsoft.teams</item>
+        <item>com.skype.raider</item>
+        <item>com.discord</item>
+
+        <!-- Camera apps -->
+        <item>com.google.android.GoogleCamera</item>
+        <item>com.android.camera2</item>
+
+        <!-- Social media apps with camera -->
+        <item>com.instagram.android</item>
+        <item>com.snapchat.android</item>
+        <item>com.whatsapp</item>
+        <item>com.facebook.katana</item>
+        <item>com.twitter.android</item>
+
+        <!-- Add more apps as needed -->
+    </string-array>
+</resources>

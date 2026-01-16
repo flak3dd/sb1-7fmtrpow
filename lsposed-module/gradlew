@@ -1,0 +1,87 @@
+#!/bin/sh
+
+##############################################################################
+# Copyright 2015-2021 the original author or authors.
+##############################################################################
+
+APP_BASE_NAME=${0##*/}
+APP_HOME=$( cd "${0%/*}" && pwd )
+
+# Add default JVM options here.
+DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+
+# Use the maximum available, or set MAX_FD != -1 to use that value.
+MAX_FD=maximum
+
+warn () {
+    echo "$*"
+} >&2
+
+die () {
+    echo
+    echo "$*"
+    echo
+    exit 1
+} >&2
+
+case "$(uname)" in
+  CYGWIN* )
+    cygwin=true
+    ;;
+  Darwin* )
+    darwin=true
+    ;;
+  MINGW* )
+    msys=true
+    ;;
+  NONSTOP* )
+    nonstop=true
+    ;;
+esac
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+if [ -n "$JAVA_HOME" ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+        JAVACMD=$JAVA_HOME/jre/sh/java
+    else
+        JAVACMD=$JAVA_HOME/bin/java
+    fi
+    if [ ! -x "$JAVACMD" ] ; then
+        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME"
+    fi
+else
+    JAVACMD=java
+    if ! command -v java >/dev/null 2>&1
+    then
+        die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH."
+    fi
+fi
+
+if [ -z "$MAX_FD" ] ; then
+    MAX_FD_LIMIT=$(ulimit -H -n)
+    if [ $? -eq 0 ] ; then
+        if [ "$MAX_FD_LIMIT" != 'unlimited' ]; then
+            if [ "$MAX_FD_LIMIT" = 'unknown' ]; then
+                ulimit -n 16384
+            else
+                MAX_FD=$(( MAX_FD_LIMIT < 16384 ? MAX_FD_LIMIT : 16384 ))
+                ulimit -n $MAX_FD
+            fi
+        fi
+    fi
+fi
+
+if $cygwin || $msys ; then
+    APP_HOME=$(cygpath --path --mixed "$APP_HOME")
+    CLASSPATH=$(cygpath --path --mixed "$CLASSPATH")
+    JAVACMD=$(cygpath --unix "$JAVACMD")
+fi
+
+exec "$JAVACMD" \
+    $DEFAULT_JVM_OPTS \
+    $JAVA_OPTS \
+    $GRADLE_OPTS \
+    -classpath "$CLASSPATH" \
+    org.gradle.wrapper.GradleWrapperMain \
+    "$@"

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VirtuCam Module</string>
+    <string name="xposed_description">Virtual camera module for Camera2 API hooking</string>
+</resources>
